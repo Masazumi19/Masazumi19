@@ -1,0 +1,36 @@
+@charset "utf-8";
+
+label {
+    display: block;
+}
+
+
+
+.body {
+    width: 300px;
+    height: 100px;
+}
+
+.index {
+    border-bottom: solid 2px gray;
+    padding-bottom: 10px;
+    
+}
+
+.index-item{
+display: flex;}
+
+.label {
+    display: block;
+}
+
+.button-group {
+    display: flex;
+    padding-left: 10px;
+}
+
+.botton-group>*:not(:last-child) {
+    margin-right: 10px;
+}
+
+
