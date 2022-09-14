@@ -1,4 +1,4 @@
-DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
 
 <head>
@@ -13,10 +13,17 @@ DOCTYPE html>
     <div class='index'>
         <h1>タスク一覧</h1>
         @foreach ($tasks as $task)
-            <a href="tasks/{{ $task->id }}">{{ $task->title }}</a>
-            <button onclick="location.href='/tasks/destroy'">削除する</button><br>
+            <div class="index-item">
+                <a href="tasks/{{ $task->id }}">{{ $task->title }}</a>
+                <form action="/tasks/{{ $task->id }}" method="post" class="index-item-delete-button">
+                    @csrf
+                    @method('DELETE')
+                    <input type="submit" value="削除する">
+                </form>
+            </div>
         @endforeach
     </div>
+
 
 
     <h1>新規論文投稿</h1>
@@ -44,7 +51,7 @@ DOCTYPE html>
             <label for="body">内容</label>
             <textarea name="body" class="body">{{ old('body') }}</textarea>
         </div>
-        <input type="submit" value="Create Task">
+        <input type="submit" value="登録">
     </form>
 </body>
 
