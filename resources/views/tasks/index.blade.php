@@ -18,7 +18,7 @@
                 <form action="/tasks/{{ $task->id }}" method="post" class="index-item-delete-button">
                     @csrf
                     @method('DELETE')
-                    <input type="submit" value="削除する">
+                    <input type="submit" value="削除する" onclick="if(!confirm('削除しますか？')){return false};">
                 </form>
             </div>
         @endforeach

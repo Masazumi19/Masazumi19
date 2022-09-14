@@ -12,20 +12,20 @@
 
 <body>
 
-    <h1>タスク一詳細</h1>
+    <h1>タスク詳細</h1>
     <p class="detail">[タイトル]</p>
     <p class="detail">{{ $task->title }}</p>
     <p class="detail">[内容]</p>
     <p class="detail">{{ $task->body }}</p>
-
-    <a href="/tasks" class="block edit">一覧へ戻る</a>
-    <a href="/tasks/{{ $task->id }}/edit" class="block edit">編集する</a>
-    <form action="/tasks/{{ $task->id }}" id="form_recipe" method="post">
-        @csrf
-        @method('DELETE')
-        <input type="submit" value="削除する" id="btn" class="block edit"
-            onclick="if(!confirm('削除しますか？')){return false};">
-    </form>
+    <div class="button-group">
+        <button onclick="location.href='/tasks'">一覧へ戻る</button>
+        <button onclick="location.href='/tasks/{{ $task->id }}/edit'">編集する</button>
+        <form action="/tasks/{{ $task->id }}" method="post">
+            @csrf
+            @method('delete')
+            <input type="submit" value="削除する" onclick="if(!confirm('削除しますか？')){return false};">
+        </form>
+    </div>
 </body>
 
 </html>
